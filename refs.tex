@@ -1,0 +1,111 @@
+% Instituto Nacional de Pesquisas Espaciais - INPE
+% carlos.bastarz@inpe.br (15/04/2021)
+
+\documentclass[10pt]{beamer}
+
+% Tema padrão (base)
+\usetheme{default}
+
+% Carrega pacotes e macros
+\input{./meus_pacotes}
+\input{./minhas_macros}
+
+\usepackage[alf]{abntex2cite}
+
+% Definição do estilo das fontes
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme{default} 
+
+% Numera Figuras, Tabelas, Equações etc.
+\setbeamertemplate{caption}[numbered]
+
+% Imagem de fundo dos frames
+\usebackgroundtemplate%
+{%
+	\includegraphics[width=\paperwidth,height=\paperheight]{fundo_slide_inpe.png}%
+}
+
+% Remove a barra de navegação dos frames
+\beamertemplatenavigationsymbolsempty
+
+% Definição das cores do tema
+\setbeamercolor{title}{fg=azulinpe}
+\setbeamercolor{frametitle}{fg=azulinpe, bg=laranjainpe}
+\setbeamercolor{palette primary}{fg=azulinpe}
+\setbeamercolor{palette secondary}{fg=azulinpe}
+\setbeamercolor{palette tertiary}{fg=azulinpe}
+\setbeamercolor{palette quaternary}{fg=azulinpe}
+\setbeamercolor{structure}{fg=azulinpe} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=azulinpe} % TOC sections
+\setbeamercolor{footnote}{fg=azulinpe}
+\setbeamercolor{footnote mark}{fg=laranjainpe}
+
+% Títulos dos frames
+\makeatletter
+\defbeamertemplate*{frametitle}{mydefault}[1][left]
+{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \hspace{0.8cm}
+  \hspace{-0.5cm}
+  \pgfsetfillopacity{0}
+  \begin{beamercolorbox}[sep=0.3cm,#1,wd=0.64\textwidth]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1.5ex%
+    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+    \strut\pgfsetfillopacity{1}\insertframetitle\strut\par%
+    {%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+\makeatother
+
+% Início do documento
+\begin{document}
+
+\renewcommand\thefigure{\arabic{table}}
+\setcounter{table}{9}
+
+\begin{frame}[plain,label=refs_table]{Inserção de Citações e Referências}
+	\vspace{-1.5em}
+    \begin{table}[htb]
+        \centering
+        \vspace{-0.5em}
+        \caption{Estilos de citação segundo as normas ABNT no estilo do INPE.}
+        %\vspace{-1em}
+        {\scriptsize
+        \begin{tabular}{p{6.5cm} p{3.5cm}}
+	        \toprule
+            \textbf{Uso}                                                            & \textbf{Exemplo}                                    \\
+	        \midrule                                                                                                                                    
+            \mintinline{latex}{\cite{fulano/1964}}                                  & \cite{fulano/1964}                                  \\
+            \mintinline{latex}{\citeonline{fulano/1964}}                            & \citeonline{fulano/1964}                            \\
+            \mintinline{latex}{\citeyear{fulano/1964}}                              & \citeyear{fulano/1964}                              \\
+            \mintinline{latex}{\citeauthor{ciclanoetal/1975}}                       & \citeauthor{ciclanoetal/1975}                       \\
+            \mintinline{latex}{\citeauthoronline{fulano/1964}}                      & \citeauthoronline{fulano/1964}                      \\
+            \midrule
+            \mintinline{latex}{\apud[p.~2--3]{fulano/1964}{ciclanoetal/1975}}       & \apud[p.~2--3]{fulano/1964}{ciclanoetal/1975}       \\
+            \mintinline{latex}{\apudonline[p.~2--3]{fulano/1964}{ciclanoetal/1975}} & \apudonline[p.~2--3]{fulano/1964}{ciclanoetal/1975} \\
+            \mintinline{latex}{\Idem[p.~2--3]{ciclanoetal/1975}}                    & \Idem[p.~2--3]{ciclanoetal/1975}                    \\
+            \mintinline{latex}{\Ibidem[p.~2--3]{ciclanoetal/1975}}                  & \Ibidem[p.~2--3]{ciclanoetal/1975}                  \\
+            \mintinline{latex}{\opcit[p.~2--3]{ciclanoetal/1975}}                   & \opcit[p.~2--3]{ciclanoetal/1975}                   \\
+            \mintinline{latex}{\passim{ciclanoetal/1975}}                           & \passim{ciclanoetal/1975}                           \\
+            \mintinline{latex}{\loccit{ciclanoetal/1975}}                           & \loccit{ciclanoetal/1975}                           \\
+            \mintinline{latex}{\cfcite[p.~2--3]{ciclanoetal/1975}}                  & \cfcite[p.~2--3]{ciclanoetal/1975}                  \\
+            \mintinline{latex}{\etseq{fulano/1964}}                                 & \etseq{fulano/1964}                                 \\
+	        \bottomrule                                                                                            
+        \end{tabular}
+        }
+    \end{table}
+\end{frame}
+
+\begin{frame}[label=refs_frame]{Referências Bibliográficas}
+\bibliography{referencias}
+\end{frame}
+
+\end{document}
