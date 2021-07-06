@@ -1,0 +1,158 @@
+% Exercício - LaTeX para Teses e Dissertações do INPE
+% II Semana de Imersão da ABPG
+% 06 de Julho de 2021
+% carlos.bastarz@inpe.br (@cfbastarz)
+
+% A diretiva "documentclass" informa para o LaTeX qual é a classe do documento a ser produzido;
+% Observe que as opções da diretiva, são informadas entre os colchetes "[]".
+% Outras classes de documento são: "article", "book", "report", "letter"
+\documentclass[10pt]{article}
+%\documentclass[10pt]{book}
+%\documentclass[10pt]{report}
+%\documentclass[10pt]{letter}
+
+% Em um documento LaTeX, comentários são precedidos por "%" e podem ser inseridos em qualquer parte do documento.
+
+% Este é o preâmbulo (tudo que está entre as diretivas "documentclass" e "\begin{document}").
+
+% O pacote "inputenc" fornece opções de codificação relacionadas com a representação dos caracteres;
+% A opção "utf8" permite a inserção de caracteres acentuados.
+% O pacote "inputenc" não precisa ser carregado quando o compilador da linguagem for o XeLaTeX ou o LuaLaTeX
+\usepackage[utf8]{inputenc}
+
+% O pacote "babel" fornece opções de localização do documento;
+% A opção "brazilian" localiza o documento para o idioma Português do Brasil (permite traduzir rótulos como Figure, Table, Contents etc. para Figura, Tabela e Sumário).
+\usepackage[brazilian]{babel}
+
+% O pacote "lipsum" permite gerar texto prolixo.
+\usepackage{lipsum}
+
+% O pacote "booktabs" fornece opções para a diagramação de tabelas.
+\usepackage{booktabs}
+
+% O pacote "amsmath" fornece opções para a inserção de equações.
+\usepackage{amsmath}
+
+% O pacote "graphicx" permite utilizar imagens de exemplo.
+\usepackage{graphicx}
+
+% O pacote "subfigure" permite inserir um figuras lado a lado dentro do ambiente "figure".
+\usepackage{subfigure}
+
+% O pacote "float" fornece opções para o posicionamento de corpos flutuantes (e.g., Figuras e Tabelas).
+\usepackage{float}
+
+% O pacote "abntex2cite" fornece opções de referenciação de acordo com as normas da ABNT;
+% A opção "alf" insere as referências no padrão alfanumérico.
+\usepackage[alf]{abntex2cite}
+
+% O pacote "bibentry" permite a inserção de referências no formato BibTeX.
+\usepackage{bibentry}
+
+% Macros são conjuntos de instruções encapsuladas do LaTeX. A macro "baselinestretch" define o espaçamento entre as linhas em um documento e o seu valor padrão é 1.0.
+% O comando "renewcommand" é utilizado para redefinir macros do LaTeX;
+% O comando a seguir redefine o valor da macro "baselinestretch" para 1.3 (equivalente ao espaçamento médio);
+%\renewcommand{\baselinestretch}{1.0} % é o espaçamento simples (padrão)
+\renewcommand{\baselinestretch}{1.3} % é o espaçamento médio
+%\renewcommand{\baselinestretch}{1.6} % é o espaçamento duplo
+
+% Título, autor e data do documento
+\title{\LaTeX para Teses e Dissertações do INPE \\ II Semana de Imersão da ABPG}
+\author{Carlos Frederico Bastarz}
+\date{\today}
+
+% O conteúdo do documento, é inserido entre as diretivas "\begin{document}" e "\end{document}"
+\begin{document}
+
+\setlength{\parindent}{3em} % recuo dos parágrafos
+\setlength{\parskip}{1em} % espaçamento entre os parágrafos
+
+\maketitle
+
+%\tableofcontents
+
+\section*{Resumo}
+
+\lipsum[1]
+
+\section{Introdução}
+
+\lipsum[2-3]
+
+\section{Material e Métodos}
+
+\lipsum[4]
+
+\begin{itemize}
+    \item Item;
+    \item Item;
+    \begin{itemize}
+        \item Item;
+        \item Item;
+        \begin{itemize}
+            \item Item;
+            \item Item;
+        \end{itemize}
+    \end{itemize}
+    \item Item;
+    \item Item;
+\end{itemize}
+
+\lipsum[5]
+
+\begin{table}[h]
+    \label{tab:my_table}
+    \centering
+    \caption{Uma tabela de exemplo.}
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{L1C1} & \textbf{L1C2} & \textbf{L1C3} \\
+        \midrule
+        L2C1          & L2C2          & L2C3 \\
+        L3C1          & L3C2          & L3C3 \\
+        L4C1          & L4C2          & L4C3 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\lipsum[6]
+
+\begin{multline} 
+    A(x,y)\frac{\partial^2{\Psi}}{\partial{x^2}} +
+    B(x,y)\frac{\partial^2{\Psi}}{\partial{x}\partial{y}} +
+    C(x,y)\frac{\partial^2{\Psi}}{\partial{y^2}} +
+    D(x,y)\frac{\partial{\Psi}}{\partial{x}} + \\ +
+    E(x,y)\frac{\partial{\Psi}}{\partial{y}} + F(x,y)\Psi = G(x,y)
+\end{multline}
+
+\lipsum[7]
+
+Segundo \citeonline{ciclanoetal/1975,fulano/1964}, a ciência é comunicada e registrada através de artigos, relatórios, apresentações etc. A ciência é comunicada e registrada através de artigos, relatórios, apresentações etc. \cite{ciclanoetal/1975,fulano/1964}.
+
+\section{Resultados e Discussão}
+
+\lipsum[8]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{example-image-a}
+    \caption{Uma figura de exemplo.}
+    \label{fig:my_label1}
+\end{figure}
+
+\lipsum[9-10]
+
+\begin{figure}[H]
+    \centering
+    \subfigure[Figura A]{\includegraphics[scale=0.49]{example-image-a}}
+    \subfigure[Figura B]{\includegraphics[scale=0.49]{example-image-b}}
+    \subfigure[Figura C]{\includegraphics[scale=0.49]{example-image-c}}
+    \caption{Três figuras de exemplo.}
+    \label{fig:my_label2}
+\end{figure}
+
+\lipsum[11-11]
+
+\bibliography{referencias}
+
+\end{document}
