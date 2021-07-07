@@ -4,11 +4,11 @@ Neste repositório estão disponíveis a apresentação e um exemplo de document
 
 ## Instruções de Compilação
 
-  xelatex -interaction=nonstopmode -shell-escape refs.tex
-  bibtex refs
-  xelatex -interaction=nonstopmode refs.tex
-  xelatex -interaction=nonstopmode refs.tex 
-  xelatex -interaction=nonstopmode -shell-escape redacao_cientifica_latex_abpg_06072021-cfbastarz.tex
+    xelatex -interaction=nonstopmode -shell-escape refs.tex
+    bibtex refs
+    xelatex -interaction=nonstopmode refs.tex
+    xelatex -interaction=nonstopmode refs.tex 
+    xelatex -interaction=nonstopmode -shell-escape redacao_cientifica_latex_abpg_06072021-cfbastarz.tex
 
 O arquivo final PDF da apresentação será gerado com o nome `redacao_cientifica_latex_abpg_06072021-cfbastarz.pdf`.
 
