@@ -12,6 +12,12 @@ Neste repositório estão disponíveis a apresentação e um exemplo de document
 
 O arquivo final PDF da apresentação será gerado com o nome `redacao_cientifica_latex_abpg_06072021-cfbastarz.pdf`.
 
+## Transmissão
+
+Link para a gravação da transmissão: https://youtu.be/86Ycq-nyHbs
+
+## Outros recursos
+
 Uma apostila completa pode ser obtida em https://github.com/cfbastarz/CursoIntroLaTeX/blob/master/apostila/publicacao.pdf
 
 Carlos Frederico Bastarz (carlos.bastarz@inpe.br)
